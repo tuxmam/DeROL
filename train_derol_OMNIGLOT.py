@@ -1,5 +1,6 @@
 import tensorflow as tf
 import numpy as np
+import sys
 
 from analyst_manager.AnalystManagement import AnalystManagement
 from classifiers.OMNIGLOTClassifier import OMNIGLOTClassifier
@@ -9,7 +10,7 @@ from sample_generators.OMNIGLOTGenerator import OMNIGLOTGenerator
 from sample_handlers.DelayClassification import DelayClassification
 from sample_handlers.ExperimentLogger import ExperimentLogger
 
-np.set_printoptions(threshold='nan')
+np.set_printoptions(threshold=sys.maxsize)
 import time
 import sys
 import os

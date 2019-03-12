@@ -1,9 +1,10 @@
 import tensorflow as tf
 import numpy as np
+import sys
 
 from sample_generators.UNSWGenerator import UNSWGenerator
 
-np.set_printoptions(threshold='nan')
+np.set_printoptions(threshold=sys.maxsize)
 import time
 import sys
 import math
@@ -59,7 +60,7 @@ job_manager = UNSWAnalystManagement(number_of_analysts, delay_creator, image_cla
 init = tf.global_variables_initializer()
 
 def benchmark(argv):
-    print "Starting Training from data: " + str(argv[0])
+    print ("Starting Training from data: " + str(argv[0]))
 
     with tf.Session() as sess:
         sess.run(init)
@@ -240,8 +241,8 @@ def benchmark(argv):
 
             #Statistics
             if(i % statistics_siplay_step == 0 and i!=0):
-                print "Batch " + str(i) + " finished after " + str(time.time() - t0) + " seconds"
-                print "Average cycle reward is: " + str(np.sum(reward_agg)/statistics_siplay_step)
+                print("Batch " + str(i) + " finished after " + str(time.time() - t0) + " seconds")
+                print("Average cycle reward is: " + str(np.sum(reward_agg) / statistics_siplay_step))
                 print("averaged accuracy since last print is " + str(np.average(accuracy_agg)))
                 if(is_training_phase):
                     print("averaged loss since last print " + str(np.average(loss_agg)))

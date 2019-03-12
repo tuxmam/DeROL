@@ -25,6 +25,7 @@ class OMNIGLOTGenerator(object):
                                   for family in os.listdir(self.data_folder) \
                                   if os.path.isdir(os.path.join(self.data_folder, family)) \
                                   for character in os.listdir(os.path.join(self.data_folder, family))]
+        print(self.character_folders)
         self.working_characters = random.sample(self.character_folders, self.classes)
         self.working_labels = np.random.choice(self.number_of_classes, self.classes, replace=False).tolist()
         self.cacheDict = {}
